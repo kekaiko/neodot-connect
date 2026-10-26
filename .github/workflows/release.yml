@@ -1,0 +1,79 @@
+name: Release NeoDot Connect
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Package (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: windows-x64
+            os: windows-latest
+            artifact: NeoDot-Connect-*-Windows-x64-portable.zip
+          - platform: macos-arm64
+            os: macos-latest
+            artifact: NeoDot-Connect-*-macOS-arm64.zip
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10.28.0
+
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-arm64' && 'aarch64-apple-darwin' || 'x86_64-pc-windows-msvc' }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Windows Portable package
+        if: runner.os == 'Windows'
+        run: pnpm build:windows
+
+      - name: Build macOS Apple Silicon package
+        if: runner.os == 'macOS'
+        run: |
+          rustup target add aarch64-apple-darwin
+          pnpm build:macos
+
+      - name: Upload Artifacts to GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: NeoDot Connect ${{ github.ref_name }}
+          body: |
+            ### NeoDot Connect 官方跨平台配置器 (${{ github.ref_name }})
+            
+            基于 Rust + Tauri v2 构建的本地极简配置器，一键打通 Claude Code 与 OpenAI Codex。
+            
+            - **Windows**: 解压后双击运行 `NeoDot Connect.exe`（免安装便携版，支持 Windows 10 / 11 x64）
+            - **macOS**: 解压后打开 `NeoDot Connect.app`（支持 Apple Silicon M系列芯片）
+            
+            > **官方节点**：已内置 `https://ai.neodot.shop`，输入您的 API Key 即可一键注入生效。
+          files: |
+            release/*.zip
+            release/SHA256SUMS.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#557eff"/><stop offset="1" stop-color="#2e5ce3"/></linearGradient></defs><rect x="72" y="72" width="880" height="880" rx="248" fill="url(#blue)"/><g fill="none" stroke="#fff" stroke-width="69" stroke-linecap="round"><path d="M301 632l118-227"/><path d="M454 711l163-313"/><path d="M611 632l118-227"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="ndGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a68e6"/>
+      <stop offset="100%" stop-color="#5543be"/>
+    </linearGradient>
+  </defs>
+  <rect x="72" y="72" width="880" height="880" rx="220" fill="url(#ndGrad)"/>
+  <path d="M307 737 V287 L717 737 V287" fill="none" stroke="#ffffff" stroke-width="112" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="717" cy="287" r="76" fill="#ffffff"/>
+  <circle cx="307" cy="737" r="76" fill="#ffffff"/>
+</svg>

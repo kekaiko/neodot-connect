@@ -9,11 +9,11 @@ export interface StationPreferences {
   custom: Station[];
 }
 export const DEFAULT_STATION: Station = {
-  id: "supergpt",
-  name: "SuperGPT",
-  baseUrl: "https://api.supergpt.dev",
+  id: "neodot",
+  name: "NeoDot AI",
+  baseUrl: "https://ai.neodot.shop",
 };
-export const STATION_STORAGE_KEY = "supergpt-connect.stations.v1";
+export const STATION_STORAGE_KEY = "neodot-connect.stations.v1";
 
 export function normalizeStationUrl(value: string): string {
   if (value.trim().length > 2048)

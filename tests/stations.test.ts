@@ -64,7 +64,7 @@ test("invalid destinations cannot be saved, including credentials in URLs", () =
           custom: [{ id: "custom-test", name: "Bad", baseUrl: url }],
         }),
       ).selected,
-      "supergpt",
+      "neodot",
     );
   }
   assert.equal(
@@ -79,21 +79,21 @@ test("duplicate destinations, duplicate IDs, and attempts to replace the default
       selected: "custom-removed",
       custom: [
         {
-          id: "supergpt",
+          id: "neodot",
           name: "Imposter",
           baseUrl: "https://bad.example.test",
         },
         {
           id: "custom-copy",
           name: "Copy",
-          baseUrl: "https://api.supergpt.dev/v1",
+          baseUrl: "https://ai.neodot.shop/v1",
         },
         { id: "custom-one", name: "One", baseUrl: "https://one.example.test" },
         { id: "custom-one", name: "Two", baseUrl: "https://two.example.test" },
       ],
     }),
   );
-  assert.equal(loaded.selected, "supergpt");
+  assert.equal(loaded.selected, "neodot");
   assert.deepEqual(
     loaded.custom.map((item) => item.id),
     ["custom-one"],

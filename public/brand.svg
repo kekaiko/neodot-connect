@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ndGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a68e6"/>
+      <stop offset="100%" stop-color="#5543be"/>
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="url(#ndGrad)"/>
+  <!-- Modern N with dot connectivity -->
+  <path d="M30 72 V28 L70 72 V28" fill="none" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="70" cy="28" r="7.5" fill="#ffffff"/>
+  <circle cx="30" cy="72" r="7.5" fill="#ffffff"/>
+</svg>
