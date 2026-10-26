@@ -6,7 +6,7 @@ edition = "2021"
 rust-version = "1.85"
 license = "MIT"
 repository = "https://github.com/kekaiko/neodot-connect"
-default-run = "supergpt-connect"
+default-run = "neodot-connect"
 
 [lib]
 name = "neodot_connect_lib"

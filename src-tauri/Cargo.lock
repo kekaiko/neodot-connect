@@ -1961,6 +1961,27 @@ dependencies = [
 ]
 
 [[package]]
+name = "neodot-connect"
+version = "0.1.6"
+dependencies = [
+ "dirs 5.0.1",
+ "fs2",
+ "jsonc-parser",
+ "reqwest 0.12.28",
+ "serde",
+ "serde_json",
+ "sha2",
+ "tauri",
+ "tauri-build",
+ "tempfile",
+ "thiserror 2.0.21",
+ "tokio",
+ "toml_edit 0.22.27",
+ "windows-sys 0.61.2",
+ "winreg",
+]
+
+[[package]]
 name = "new_debug_unreachable"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3231,27 +3252,6 @@ name = "subtle"
 version = "2.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
-
-[[package]]
-name = "supergpt-connect"
-version = "0.1.6"
-dependencies = [
- "dirs 5.0.1",
- "fs2",
- "jsonc-parser",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "sha2",
- "tauri",
- "tauri-build",
- "tempfile",
- "thiserror 2.0.21",
- "tokio",
- "toml_edit 0.22.27",
- "windows-sys 0.61.2",
- "winreg",
-]
 
 [[package]]
 name = "swift-rs"
